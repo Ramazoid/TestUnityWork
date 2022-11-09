@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Changer : MonoBehaviourExtBind
+public class Changer2 : MonoBehaviourExtBind
 {
     private Text TextIndicator;
 

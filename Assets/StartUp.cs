@@ -20,4 +20,11 @@ public class StartUp : MonoBehaviourExt
     {
         Model.Dec("Metavar");
     }
+    /*
+    [OnRefresh(0.1f)]
+    void upp()
+    {
+        print("Refresh="+Time.time);
+    }
+    */
 }
