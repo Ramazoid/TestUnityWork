@@ -1,14 +1,20 @@
-﻿using AxGrid.Base;
+﻿using AxGrid;
+using AxGrid.Base;
 using AxGrid.Model;
 using AxGrid.Path;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class StartUp : MonoBehaviourExt
+public class StartUp : MonoBehaviourExtBind
 {
+    public Button bounceButton;
+    public GameObject Ball;
     [OnStart]
+
     private void Init()
     {
-        Model.Set("MetaVar", 0);
+        Model.Set("Balls", 0);
+        
 
     }
    
@@ -20,11 +26,25 @@ public class StartUp : MonoBehaviourExt
     {
         Model.Dec("Metavar");
     }
-    /*
-    [OnRefresh(0.1f)]
-    void upp()
+    public void Bounce()
     {
-        print("Refresh="+Time.time);
+        bounceButton.interactable = false;
+        Settings.Invoke("Bounce",-1);
+    } public void BounceRandom()
+    {
+        bounceButton.interactable = false;
+        Settings.Invoke("Bounce",Random.Range(0,(int)Model.Get("Balls")));
     }
-    */
+    public void MoreBall()
+    {
+        Model.Inc("Balls");
+        Vector2 newpos = new Vector2(Random.Range(0, Screen.width), Random.Range(0, Screen.height));
+        GameObject newBall = Instantiate(Ball,Ball.transform.parent);
+        newBall.GetComponent<RectTransform>().anchoredPosition = newpos;
+    }
+    [Bind("BouncingDone")]
+    void BouncingDone()
+    {
+        bounceButton.interactable = true;
+    }
 }
