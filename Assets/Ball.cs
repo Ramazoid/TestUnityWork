@@ -32,7 +32,7 @@ public class Ball : MonoBehaviourExtBind
 
         Path = new CPath();
 
-        Path.EasingBounceEaseIn(3, 0, Random.Range(0,200), (pos) =>
+        Path.EasingBounceEaseIn(3, 0, Random.Range(0,200)+100, (pos) =>
            {
                
                RT.anchoredPosition = StartPosition + Vector2.up * pos;
