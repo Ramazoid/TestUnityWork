@@ -7,20 +7,21 @@ using UnityEngine;
 [State("AtHome")]
 public class AtHome : FSMState 
 {
-    // Start is called before the first frame update
-    void Start()
+    [Enter]
+    void EnterHere()
     {
-        Log.Debug("AthomeState");
+        Log.Debug("AtHomeState");
     }
-    [Bind("OnToWork")]
-    private void ToWork()
-    {
-        Log.Debug("ToWork");
-    }
+   
     [Bind("OnBtn")]
     void OnButtonPress(string buttonName)
     {
         Log.Debug(buttonName);
+        switch(buttonName)
+        {
+            case "ToWork": Parent.Change("ToWork");break;
+            case "ToMarket": Parent.Change("TOMarket");break;
+        }
     }
 
 }

@@ -10,12 +10,12 @@ public class WorkerMain : MonoBehaviourExtBind
     [OnStart]
     private void StartThis()
     {
-        Log.Debug("ExMain Start");
+        Log.Debug("Worker Main Start");
         Settings.Fsm = new FSM();
         Settings.Fsm.Add(new AtHome());
+        Settings.Fsm.Add(new ToWork());
        
         Settings.Fsm.Start("AtHome");
-        
     }
 
     // Update is called once per frame
