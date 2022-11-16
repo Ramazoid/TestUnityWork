@@ -18,9 +18,10 @@ public class WorkerMain : MonoBehaviourExtBind
         Settings.Fsm.Start("AtHome");
     }
 
+    [OnUpdate]
     // Update is called once per frame
-    void Update()
+    void UpdateFSM()
     {
-        
+        Settings.Fsm.Update(Time.deltaTime);
     }
 }
