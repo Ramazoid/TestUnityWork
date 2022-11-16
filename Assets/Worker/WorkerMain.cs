@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WorkerMain : MonoBehaviour
+public class WorkerMain : MonoBehaviourExtBind
 {
     [OnStart]
     private void StartThis()
@@ -14,7 +14,8 @@ public class WorkerMain : MonoBehaviour
         Settings.Fsm = new FSM();
         Settings.Fsm.Add(new AtHome());
        
-        Settings.Fsm.Start("ExInit");
+        Settings.Fsm.Start("AtHome");
+        
     }
 
     // Update is called once per frame
