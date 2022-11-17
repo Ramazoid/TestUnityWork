@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class WorkerMain : MonoBehaviourExtBind
 {
+    public GameObject[] buttons;
     [OnStart]
     private void StartThis()
     {
@@ -14,8 +15,10 @@ public class WorkerMain : MonoBehaviourExtBind
         Settings.Fsm = new FSM();
         Settings.Fsm.Add(new AtHome());
         Settings.Fsm.Add(new ToWork());
+        Settings.Fsm.Add(new AtWork());
        
         Settings.Fsm.Start("AtHome");
+        Model.Set("Buttons", buttons);
     }
 
     // Update is called once per frame

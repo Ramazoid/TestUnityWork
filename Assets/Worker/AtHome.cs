@@ -16,7 +16,13 @@ public class AtHome : FSMState
     [Bind("OnBtn")]
     void OnButtonPress(string buttonName)
     {
-        Log.Debug(buttonName);
+        GameObject[] buttons = Model.Get<GameObject[]>("Buttons");
+
+        foreach (GameObject b in buttons) b.SetActive(false);
+        //Model.Set("BtnToWorkEnable", false);
+
+        Model.Set("Btn{ToWork}Enable", false);
+        Log.Debug("ButtonName=["+buttonName+"]");
         switch(buttonName)
         {
             case "ToWork": Parent.Change("ToWork");break;
