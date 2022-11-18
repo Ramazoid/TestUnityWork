@@ -26,8 +26,7 @@ public class AtWork : FSMState
     [Loop(3f)]
     void Earn()
     {
-        Log.Debug("Earn"+Time.time);
-        Model.Inc("Account");
+        Settings.Invoke("Earn");
     }
     
     [Bind("OnBtn")]
