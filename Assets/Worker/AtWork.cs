@@ -14,14 +14,20 @@ public class AtWork : FSMState
 
     void EnterHere()
     {
+        Log.Debug("State AtWork");
         GameObject[] buttons = Model.Get<GameObject[]>("Buttons");
 
         foreach (GameObject b in buttons) b.SetActive(true);
     }
 
-    [OnRefresh(3)]
+    [Loop(3f)]
     void Earn()
     {
         Log.Debug("Earn"+Time.time);
+    }
+    [One(3f)]
+    private void Earning()
+    {
+        Log.Debug("Earning" + Time.time);
     }
 }

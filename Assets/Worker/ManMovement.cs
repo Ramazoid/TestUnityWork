@@ -56,7 +56,7 @@ public class ManMovement : MonoBehaviourExtBind
         })
         .EasingLinear(3, 0, 1, (progress) =>
         {
-            Log.Debug(progress.ToString());
+
             RT.localPosition = Vector3.Lerp(startPos,endPos, progress);
         })
         .Action(() =>
