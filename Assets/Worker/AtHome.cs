@@ -26,7 +26,7 @@ public class AtHome : FSMState
         switch(buttonName)
         {
             case "ToWork": Parent.Change("ToWork");break;
-            case "ToMarket": Parent.Change("TOMarket");break;
+            case "ToMarket": Parent.Change("ToMarket");break;
         }
     }
 

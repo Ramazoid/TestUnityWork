@@ -64,5 +64,7 @@ public class ManMovement : MonoBehaviourExtBind
             walking = false;
             Settings.Fsm.Change("AtWork");
         });
+       
     }
+
 }

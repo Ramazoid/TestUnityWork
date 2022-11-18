@@ -5,6 +5,9 @@ using AxGrid.Model;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using AxGrid.FSM;
+using TMPro;
+using UnityEngine.UI;
 
 [State("AtWork")]
 public class AtWork : FSMState
@@ -24,10 +27,21 @@ public class AtWork : FSMState
     void Earn()
     {
         Log.Debug("Earn"+Time.time);
+        Model.Inc("Account");
     }
-    [One(3f)]
-    private void Earning()
+    
+    [Bind("OnBtn")]
+    void OnButtonPress(string buttonName)
     {
-        Log.Debug("Earning" + Time.time);
+        GameObject[] buttons = Model.Get<GameObject[]>("Buttons");
+
+        foreach (GameObject b in buttons) b.SetActive(false);
+
+        Log.Debug("ButtonName=[" + buttonName + "]");
+        switch (buttonName)
+        {
+            case "ToWork": Parent.Change("ToWork"); break;
+            case "ToMarket": Parent.Change("ToMarket"); break;
+        }
     }
 }

@@ -4,13 +4,17 @@ using AxGrid.FSM;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WorkerMain : MonoBehaviourExtBind
 {
     public GameObject[] buttons;
+    public Text Account;
+
     [OnStart]
     private void StartThis()
     {
+        Model.Set("Account", Account);
         Log.Debug("Worker Main Start");
         Settings.Fsm = new FSM();
         Settings.Fsm.Add(new AtHome());
@@ -25,5 +29,7 @@ public class WorkerMain : MonoBehaviourExtBind
     void Update()
     {
         
+            Settings.Fsm?.Update(Time.deltaTime);
+       
     }
 }
