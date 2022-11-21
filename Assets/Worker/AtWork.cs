@@ -23,10 +23,11 @@ public class AtWork : FSMState
         foreach (GameObject b in buttons) b.SetActive(true);
     }
 
-    [Loop(3f)]
+    [Loop(1f)]
     void Earn()
     {
-        Settings.Invoke("Earn");
+        Log.Debug("Change");
+        Model.Inc("Account",1);
     }
     
     [Bind("OnBtn")]

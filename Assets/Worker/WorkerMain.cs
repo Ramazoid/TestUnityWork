@@ -14,7 +14,7 @@ public class WorkerMain : MonoBehaviourExtBind
     [OnStart]
     private void StartThis()
     {
-        Model.Set("Account", Account);
+        Model.Set("Account", 0);
         Log.Debug("Worker Main Start");
         Settings.Fsm = new FSM();
         Settings.Fsm.Add(new AtHome());

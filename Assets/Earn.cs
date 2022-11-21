@@ -1,4 +1,5 @@
-﻿using AxGrid.Base;
+﻿using AxGrid;
+using AxGrid.Base;
 using AxGrid.Model;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,9 +18,10 @@ public class Earn : MonoBehaviourExtBind
         AccountText = GetComponent<Text>();
     }
 
-    [Bind("Earn")]
+    [Bind("OnAccountChanged")]
     private void Earning()
     {
+        Log.Debug("event Change");
         moneyAmount++;
         AccountText.text = moneyAmount.ToString();
 
